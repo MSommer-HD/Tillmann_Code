@@ -1,0 +1,23 @@
+{% extends "Endogen/Page.html" %}
+{% load otree static %}
+{% block title %}
+    Completion
+{% endblock %}
+<! This is a html-comment>
+<! The building blocks of our pages are HTML. You can find more info here: https://www.w3schools.com/html/html_intro.asp
+p indicates a text, br is equal to enter and div is the main block >
+
+{% block content %}
+<div id="main">
+    <p>
+
+      <br>
+        You earned a total of {{payoff}} during the experiment. <br>
+        Your total payment (reward plus bonus) is <b>{{ total}}.</b><br><br>
+
+        Thank you for participating in this experiment, your completion code is <b>{{ completion_code }}.</b><br>
+        Please close this window and return to MTurk and insert your completion code to collect your reward.
+    </p>
+</div>
+
+{% endblock %}

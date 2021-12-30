@@ -1,0 +1,50 @@
+{% extends "Endogen/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Result
+{% endblock %}
+
+{% block content %}
+
+
+<! Here we need an if statement, since the players in the treatment determines if he gets info of the pool breaking down or not.
+        In this special case we have a nested loop. For those the syntax remains the same as a normal loop>
+
+    <p>
+            You took {{take}} points. {{total_points_left}} points remained in the pool and increased to {{pool_mult}} points.<br>
+            Since {{points_taken}} points were taken, the chance that the pool broke down was at {{tipping_point}}%.<br><br>
+
+        {% if breakdown == 1 %}
+        <br>
+             <b>Unfortunately the pool broke down.</b><br>
+                This means you will not get any points from the game itself.
+            {%else%}
+        <br>
+             <b>Fortunately the pool did not break down.</b>
+                This means your share of the pool is {{share}} points and you can keep the {{take}} points you took.<br><br>
+            {% endif %} <br>
+
+        <i>Additional points:</i><br>
+            {% if correct_belief == 1 %}
+                Your guess on the amount of points left in the pool was <b>correct</b>.
+            {% if breakdown == 1 %}
+                However, as the pool broke down, you will not receive the point.
+            {% else %}
+                Therefore you earn one additional point. <br>
+            {% endif %}
+            {%else%}
+                Your guess on the amount of points left in the pool was <b>false</b>, therefore
+                you do not earn the additional point. <br>
+            {%endif%}
+<br>
+        <b>Total number of your points from the game:</b> {{payoff}}
+
+        <br><br>
+        Now you only need to complete a short questionnaire to finish this study and collect the money you earned.
+    </p>
+<br>
+   {% next_button %}
+{% endblock %}
+
+

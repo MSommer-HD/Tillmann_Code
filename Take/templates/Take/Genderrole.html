@@ -1,0 +1,34 @@
+{% extends "Endogen/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Questionnaire
+{% endblock %}
+
+{% block content %}
+    <br>
+    <p>On this and the next pages you will find a few questions about your self-perception.</p> <br>
+    <p>Please <b>rate the following characteristics</b> on a scale ranging from <b>'never'</b> to <b>'always'</b>, according to how often you think these apply to you.
+Please answer as honestly as you can and choose the option that seems the most accurate to you. <br>
+
+<style>
+    .col-form-label {
+    font-size: 1.3rem;}
+</style>
+<br>
+<br>
+       {% formfield player.G1 %}<br>
+        {% formfield player.G2 %}<br>
+        {% formfield player.G3 %}<br>
+        {% formfield player.G4 %}<br>
+        {% formfield player.G5 %}<br>
+        {% formfield player.G6 %}<br>
+        {% formfield player.G7 %}<br>
+        {% formfield player.G8 %}<br>
+        {% formfield player.G9 %}<br>
+        {% formfield player.G10 %}<br>
+
+    </p>
+<br>
+ {% next_button %}
+{% endblock %}
